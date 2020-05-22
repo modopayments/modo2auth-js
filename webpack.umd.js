@@ -1,8 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const webpack = require('webpack')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-// const CopyPlugin = require('copy-webpack-plugin')
 
 const getDirs = p =>
   fs.readdirSync(p).filter(f => fs.statSync(path.join(p, f)).isDirectory())
@@ -15,19 +12,20 @@ const resolveAlias = getDirs(path.resolve(__dirname)).reduce((acc, name) => {
 
 module.exports = () => {
   console.log('*****************') // eslint-disable-line
-  console.log('modo2auth-node') // eslint-disable-line
+  console.log('modo2auth-js: umd') // eslint-disable-line
   console.log('*****************') // eslint-disable-line
 
   const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production'
 
   return {
     entry: [path.resolve(__dirname, 'src/index.js')],
-    target: 'node',
+    // target: 'node',
     output: {
-      filename: 'index.js',
-      path: path.resolve(__dirname, 'dist/'),
+      filename: 'modo2auth.js',
+      path: path.resolve(__dirname, 'dist'),
+      library: 'Modo2Auth',
+      libraryTarget: 'umd',
     },
-    plugins: [new CleanWebpackPlugin()],
     mode,
     module: {
       rules: [

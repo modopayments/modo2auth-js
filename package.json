@@ -1,18 +1,22 @@
 {
   "name": "modo2auth-node",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "A node module to generate authentication details to communicate with Modo servers",
+  "main": "dist/modo2auth.js",
+  "module": "src/index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack --watch --config ./webpack.common.js",
-    "build": "NODE_ENV=production webpack --config ./webpack.common.js",
-    "build:javascript": "NODE_ENV=production webpack --config ./webpack.javascript.js",
+    "dev": "NODE_ENV=development webpack --watch --config ./webpack.umd.js",
+    "build": "NODE_ENV=production webpack --config ./webpack.umd.js && webpack --config ./webpack.browser.js",
     "test": "jest unit",
     "test:watch": "yarn run test --watch"
   },
   "keywords": [],
   "author": "Adam Schnaare <adam.schnaare@modopayments.com>",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/modopayments-ux/modo2auth-node"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/node": "^7.8.7",

@@ -1,8 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const webpack = require('webpack')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-// const CopyPlugin = require('copy-webpack-plugin')
 
 const getDirs = p =>
   fs.readdirSync(p).filter(f => fs.statSync(path.join(p, f)).isDirectory())
@@ -15,18 +12,19 @@ const resolveAlias = getDirs(path.resolve(__dirname)).reduce((acc, name) => {
 
 module.exports = () => {
   console.log('*****************') // eslint-disable-line
-  console.log('modo-auth: javascript') // eslint-disable-line
+  console.log('modo2auth-js: browser') // eslint-disable-line
   console.log('*****************') // eslint-disable-line
 
   const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production'
 
   return {
-    entry: [path.resolve(__dirname, 'src/index_javascript_build.js')],
+    entry: [path.resolve(__dirname, 'src/index.js')],
+    // target: 'node',
     output: {
-      filename: 'modo2Auth.js',
-      path: path.resolve(__dirname, '../javascript/'),
-      libraryTarget: 'var',
+      filename: 'modo2auth-browser.js',
+      path: path.resolve(__dirname, 'dist'),
       library: 'Modo2Auth',
+      libraryTarget: 'var',
     },
     mode,
     module: {
@@ -38,9 +36,6 @@ module.exports = () => {
           },
         },
       ],
-    },
-    stats: {
-      colors: true,
     },
     resolve: {
       alias: resolveAlias,
