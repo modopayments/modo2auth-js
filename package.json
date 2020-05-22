@@ -11,7 +11,7 @@
     "test:watch": "yarn run test --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Adam Schnaare <adam.schnaare@modopayments.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.0",

@@ -1,4 +1,4 @@
-import Modo2Auth from '../../index'
+import Modo2Auth from '../../src/index'
 import { MockRequest, mockCreds } from '../../mocks'
 
 describe('Modo2Auth', () => {

@@ -2,16 +2,7 @@ module.exports = api => {
   api.cache(true)
 
   return {
-    presets: [
-      [
-        '@babel/preset-env',
-        {
-          targets: {
-            esmodules: true,
-          },
-        },
-      ],
-    ],
+    presets: [['@babel/preset-env']],
     ignore: [/[/\\]core-js/, /@babel[/\\]runtime/],
     plugins: [
       '@babel/plugin-proposal-class-properties',

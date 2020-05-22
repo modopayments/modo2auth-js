@@ -1,4 +1,4 @@
-import Modo2Auth from '../../index'
+import Modo2Auth from '../../src/index'
 import { mockCreds } from '../../mocks'
 import fetch from 'node-fetch'
 

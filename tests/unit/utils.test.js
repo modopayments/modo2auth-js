@@ -4,7 +4,7 @@ import {
   makeSignature,
   encodeHash,
   sanitizeString,
-} from '../../utils'
+} from '../../src/utils'
 import { mockCreds } from '../../mocks'
 
 describe('utils', () => {
