@@ -15,10 +15,10 @@ These values will be used when intantiating the library.
 
 ```bash
 # via npm
-npm install TBD
+npm install modopayments-ux/modo2auth-js
 
 # via yarn
-yarn add TBD
+yarn add modopayments-ux/modo2auth-js
 ```
 
 # Example Usage
@@ -27,20 +27,19 @@ Here's an example using `node-fetch` to make requests. You can use your preferre
 
 ```js
 // 1. IMPORT
-import Modo2Auth from 'modo2auth-js'
-import fetch from 'node-fetch' // for example purposes
-
-const creds = {
-  api_identifier: '...', // get from Modo
-  api_secret: '...', // get from Modo
-}
+const Modo2Auth = require('modo2auth-js')
+const fetch = require('node-fetch') // for example purposes
 
 // 2. INSTANTIATE
+const creds = {
+  api_identifier: '...', // get these from MODO
+  api_secret: '...', // get these from MODO
+}
 const modo2Auth = new Modo2Auth(creds)
-const api_host = 'http://localhost:82' // TODO: need to find actual endpoint that we should point to as example
-const api_uri = '/v2/vault/public_key' // endpoint you want to hit
 
 // 3. SEND REQUEST
+const api_host = 'http://localhost:82' // TODO: need to find actual endpoint that we should point to as example
+const api_uri = '/v2/vault/public_key' // endpoint you want to hit
 fetch(api_host + api_uri, {
   method: 'GET',
   headers: {
@@ -94,4 +93,3 @@ Prerequisite: `yarn` installed globally
 1. Install [`yarn`](https://classic.yarnpkg.com/en/docs/install) globally on your machine
 2. In the root of this directory, run `yarn`
 3. Unit test - `yarn run test`
-4. Build - `yarn run build` (for built package)

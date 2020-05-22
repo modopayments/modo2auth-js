@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/modopayments-ux/modo2auth-node"
+    "url": "https://github.com/modopayments-ux/modo2auth-js"
   },
   "devDependencies": {
     "eslint": "^7.0.0",
