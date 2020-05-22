@@ -1,5 +1,5 @@
 {
-  "name": "modo2auth-node",
+  "name": "modo2auth-js",
   "version": "1.0.0",
   "description": "A node module to generate authentication details to communicate with Modo servers",
   "main": "dist/modo2auth.js",

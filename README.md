@@ -1,4 +1,4 @@
-# modo-auth
+# modo2auth-js
 
 > A node module to generate authentication details to communicate with Modo servers
 
@@ -12,6 +12,7 @@
 These values will be used when intantiating the library.
 
 # Install
+
 ```bash
 # via npm
 npm install TBD
@@ -26,7 +27,7 @@ Here's an example using `node-fetch` to make requests. You can use your preferre
 
 ```js
 // 1. IMPORT
-import Modo2Auth from 'modo2auth-node'
+import Modo2Auth from 'modo2auth-js'
 import fetch from 'node-fetch' // for example purposes
 
 const creds = {
@@ -74,9 +75,9 @@ Returns a Modo2Auth token (string) to be added to an HTTP request as an Authoriz
 
 `body` (string, object, null) - Body of the request
 
- - (string) should be stringified JSON
- - (object) from be well-formed JSON
- - for `GET` requests, leave as `null`
+- (string) should be stringified JSON
+- (object) from be well-formed JSON
+- for `GET` requests, leave as `null`
 
 ## `signRequest(api_uri, request)`
 
