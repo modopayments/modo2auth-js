@@ -2,11 +2,9 @@
   "name": "modo2auth-js",
   "version": "1.0.0",
   "description": "A node module to generate authentication details to communicate with Modo servers",
-  "main": "dist/modo2auth.js",
-  "module": "src/index.js",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack --watch --config ./webpack.umd.js",
-    "build": "NODE_ENV=production webpack --config ./webpack.umd.js && webpack --config ./webpack.browser.js",
+    "build": "webpack",
     "test": "jest unit",
     "test:watch": "yarn run test --watch"
   },
@@ -18,29 +16,12 @@
     "url": "https://github.com/modopayments-ux/modo2auth-node"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/plugin-proposal-async-generator-functions": "^7.8.3",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^25.3.0",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.13.1",
     "jest": "^25.3.0",
-    "node-fetch": "^2.6.0",
-    "nodemon": "^2.0.3",
-    "rimraf": "^3.0.2",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
-    "webpack-node-externals": "^1.7.2"
+    "node-fetch": "^2.6.0"
   },
   "dependencies": {
     "base64url": "^3.0.1"

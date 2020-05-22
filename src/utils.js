@@ -1,7 +1,7 @@
-import crypto from 'crypto'
-import base64url from 'base64url'
+const crypto = require('crypto')
+const base64url = require('base64url')
 
-export const makeHeader = () => {
+const makeHeader = () => {
   const data = {
     alg: 'HS256',
     typ: 'JWT',
@@ -9,7 +9,7 @@ export const makeHeader = () => {
   return base64url(JSON.stringify(data))
 }
 
-export const makePayload = (api_uri, api_identifier, body, iat) => {
+const makePayload = (api_uri, api_identifier, body, iat) => {
   // iat is exposed to allow to proper testing of the function
   const timestamp = Math.round(new Date().getTime() / 1000) // in seconds
   const body_hash = encodeHash(body) // hex digest of sha256 of data
@@ -24,20 +24,22 @@ export const makePayload = (api_uri, api_identifier, body, iat) => {
   return base64url(JSON.stringify(payload))
 }
 
-export const makeSignature = (header, payload, secret) => {
+const makeSignature = (header, payload, secret) => {
   const data = `${header}.${payload}`
   const digest = crypto.createHmac('sha256', secret).update(data).digest('base64')
 
   return sanitizeString(digest)
 }
 
-export function encodeHash(data) {
+function encodeHash(data) {
   return crypto.createHash('sha256').update(data).digest('hex')
 }
 
-export function sanitizeString(url) {
+function sanitizeString(url) {
   url = url.replace(/[+]/g, '-')
   url = url.replace(/[/]/g, '_')
   url = url.replace(/[=]/g, '')
   return url
 }
+
+module.exports = { makeHeader, makePayload, makeSignature, encodeHash, sanitizeString }

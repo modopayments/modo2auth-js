@@ -1,6 +1,6 @@
-import { makeHeader, makePayload, makeSignature } from './utils'
+const { makeHeader, makePayload, makeSignature } = require('./utils.js')
 
-export default class Modo2Auth {
+module.exports = class Modo2Auth {
   constructor({ api_identifier, api_secret }) {
     this.api_identifier = api_identifier
     this.api_secret = api_secret
