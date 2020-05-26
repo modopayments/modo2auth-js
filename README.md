@@ -13,6 +13,8 @@ These values will be used when intantiating the library.
 
 # Install
 
+From the root of your project, (where the `package.json` resides), run one of the following commands.
+
 ```bash
 # via npm
 npm install modopayments-ux/modo2auth-js
@@ -24,6 +26,8 @@ yarn add modopayments-ux/modo2auth-js
 # Example Usage
 
 Here's an example using `node-fetch` to make requests. You can use your preferred method or library.
+
+## `GET` Example
 
 ```js
 // 1. IMPORT
@@ -38,7 +42,7 @@ const creds = {
 const modo2Auth = new Modo2Auth(creds)
 
 // 3. SEND REQUEST
-const api_host = 'http://localhost:82' // TODO: need to find actual endpoint that we should point to as example
+const api_host = 'http://localhost:82' // TODO: will need to use a public endpoint
 const api_uri = '/v2/vault/public_key' // endpoint you want to hit
 fetch(api_host + api_uri, {
   method: 'GET',
@@ -48,6 +52,46 @@ fetch(api_host + api_uri, {
   },
 })
   .then(resp => {
+    // https://github.com/node-fetch/node-fetch methods
+    return resp.text()
+  })
+  .then(text => {
+    console.log('text', text)
+  })
+```
+
+## `POST` Example
+
+```js
+// 1. IMPORT
+const Modo2Auth = require('modo2auth-js')
+const fetch = require('node-fetch') // for example purposes
+
+// 2. INSTANTIATE
+const creds = {
+  api_identifier: '...', // get these from MODO
+  api_secret: '...', // get these from MODO
+}
+const modo2Auth = new Modo2Auth(creds)
+
+// 3. SEND REQUEST
+const api_host = 'http://localhost:82' // TODO: will need to use a public endpoint
+const api_uri = '/v2/reports' // endpoint you want to hit
+// `body` is included due to this being a POST request
+const body = {
+  start_date: '2020-05-01T00:00:00Z',
+  end_date: '2020-05-26T00:00:00Z',
+}
+fetch(api_host + api_uri, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: modo2Auth.getToken(api_uri, body),
+  },
+  body: JSON.stringify(body),
+})
+  .then(resp => {
+    // https://github.com/node-fetch/node-fetch methods
     return resp.text()
   })
   .then(text => {
