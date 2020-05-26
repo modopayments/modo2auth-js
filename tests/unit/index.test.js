@@ -1,5 +1,5 @@
-import Modo2Auth from '../../src/index'
-import { MockRequest, mockCreds } from '../../mocks'
+const Modo2Auth = require('../../src/index')
+const { MockRequest, mockCreds } = require('../../mocks')
 
 describe('Modo2Auth', () => {
   let modo2Auth = new Modo2Auth(mockCreds)

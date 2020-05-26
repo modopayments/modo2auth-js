@@ -1,5 +1,5 @@
-const crypto = require('crypto')
-const base64url = require('base64url')
+const crypto = require('crypto') // https://nodejs.org/api/crypto.html
+const base64url = require('base64url') // https://www.npmjs.com/package/base64url
 
 const makeHeader = () => {
   const data = {

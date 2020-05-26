@@ -1,11 +1,11 @@
-import {
+const {
   makeHeader,
   makePayload,
   makeSignature,
   encodeHash,
   sanitizeString,
-} from '../../src/utils'
-import { mockCreds } from '../../mocks'
+} = require('../../src/utils')
+const { mockCreds } = require('../../mocks')
 
 describe('utils', () => {
   const { api_identifier, api_secret } = mockCreds
