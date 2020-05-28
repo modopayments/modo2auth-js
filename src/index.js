@@ -50,7 +50,7 @@ module.exports = class Modo2Auth {
 
   getToken(api_uri, body, iat) {
     body = body || '' // ensure body is defined
-    body = typeof body == 'object' ? JSON.stringify(body) : body // verify body is stringified JSON
+    body = typeof body === 'object' ? JSON.stringify(body) : body // verify body is stringified JSON
     const header = this._makeHeader()
     const payload = this._makePayload(api_uri, this.api_identifier, body, iat)
     const signature = this._makeSignature(header, payload, this.api_secret)
@@ -59,7 +59,7 @@ module.exports = class Modo2Auth {
 
   signRequest(api_uri, request, iat) {
     let body = !request.body ? '' : request.body // ensure body is defined
-    body = typeof body == 'object' ? JSON.stringify(body) : body // verify body is stringified JSON
+    body = typeof body === 'object' ? JSON.stringify(body) : body // verify body is stringified JSON
     const token = this.getToken(api_uri, body, iat)
     request.headers['Authorization'] = token
 
