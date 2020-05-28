@@ -2,6 +2,8 @@
 
 > A node module to generate authentication details to communicate with Modo servers
 
+- Move to modopayments account before advertising for public use.
+
 # Prerequesites
 
 **Credentials** that are created and shared by Modo. These will be different for each environment (`int`, `prod`, `local` etc...).
@@ -17,10 +19,10 @@ From the root of your project, (where the `package.json` resides), run one of th
 
 ```bash
 # via npm
-npm install modopayments-ux/modo2auth-js
+npm install @modopayments-ux/modo2auth-js
 
 # via yarn
-yarn add modopayments-ux/modo2auth-js
+yarn add @modopayments-ux/modo2auth-js
 ```
 
 # Example Usage
@@ -31,7 +33,7 @@ Here's an example using `node-fetch` to make requests. You can use your preferre
 
 ```js
 // 1. IMPORT
-const Modo2Auth = require('modo2auth-js')
+const Modo2Auth = require('@modopayments-ux/modo2auth-js')
 const fetch = require('node-fetch') // for example purposes
 
 // 2. INSTANTIATE
@@ -64,7 +66,7 @@ fetch(api_host + api_uri, {
 
 ```js
 // 1. IMPORT
-const Modo2Auth = require('modo2auth-js')
+const Modo2Auth = require('@modopayments-ux/modo2auth-js')
 const fetch = require('node-fetch') // for example purposes
 
 // 2. INSTANTIATE
