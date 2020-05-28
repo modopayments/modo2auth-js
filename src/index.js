@@ -1,6 +1,5 @@
 const crypto = require('crypto') // https://nodejs.org/api/crypto.html
 const base64url = require('base64url') // https://www.npmjs.com/package/base64url
-// const { makePayload, makeSignature } = require('./utils.js')
 
 module.exports = class Modo2Auth {
   constructor({ api_identifier, api_secret }) {
@@ -43,15 +42,12 @@ module.exports = class Modo2Auth {
   }
 
   _sanitizeString(url) {
-    url = url.replace(/[+]/g, '-')
-    url = url.replace(/[/]/g, '_')
-    url = url.replace(/[=]/g, '')
-    return url
+    return base64url.fromBase64(url)
   }
 
   getToken(api_uri, body, iat) {
     body = body || '' // ensure body is defined
-    body = typeof body == 'object' ? JSON.stringify(body) : body // verify body is stringified JSON
+    body = typeof body === 'object' ? JSON.stringify(body) : body // verify body is stringified JSON
     const header = this._makeHeader()
     const payload = this._makePayload(api_uri, this.api_identifier, body, iat)
     const signature = this._makeSignature(header, payload, this.api_secret)
@@ -60,7 +56,7 @@ module.exports = class Modo2Auth {
 
   signRequest(api_uri, request, iat) {
     let body = !request.body ? '' : request.body // ensure body is defined
-    body = typeof body == 'object' ? JSON.stringify(body) : body // verify body is stringified JSON
+    body = typeof body === 'object' ? JSON.stringify(body) : body // verify body is stringified JSON
     const token = this.getToken(api_uri, body, iat)
     request.headers['Authorization'] = token
 
