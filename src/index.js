@@ -42,10 +42,7 @@ module.exports = class Modo2Auth {
   }
 
   _sanitizeString(url) {
-    url = url.replace(/[+]/g, '-')
-    url = url.replace(/[/]/g, '_')
-    url = url.replace(/[=]/g, '')
-    return url
+    return base64url.fromBase64(url)
   }
 
   getToken(api_uri, body, iat) {
