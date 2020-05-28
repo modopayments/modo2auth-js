@@ -1,6 +1,5 @@
 const crypto = require('crypto') // https://nodejs.org/api/crypto.html
 const base64url = require('base64url') // https://www.npmjs.com/package/base64url
-// const { makePayload, makeSignature } = require('./utils.js')
 
 module.exports = class Modo2Auth {
   constructor({ api_identifier, api_secret }) {
