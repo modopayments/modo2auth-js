@@ -139,3 +139,21 @@ Prerequisite: `yarn` installed globally
 1. Install [`yarn`](https://classic.yarnpkg.com/en/docs/install) globally on your machine
 2. In the root of this directory, run `yarn`
 3. Unit test - `yarn run test`
+
+# Contributing
+1. Fork this repo via Github
+2. Create your feature branch (`git checkout -b feature/my-new-feature`)
+3. Ensure unit tests are passing (`yarn run test`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin feature/my-new-feature`)
+6. Create new Pull Request via Github
+
+# Publishing
+Prequisite: Need to have `node` installed on your system. At the root of this directory, do the following:
+
+1. Increase version in `package.json` according to Semantec Versioning guidelines
+2. Commit and push (`git commit -am 'Version bump'`)
+3. Tag with new version `git tag v1.1.0` (example)
+4. Push tags `git push --tags`
+5. Login to `npm`: `npm login --scope=@modopayments`
+6. Publish: `npm publish --access public` [See Docs](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages)
