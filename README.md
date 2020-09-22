@@ -19,10 +19,10 @@ From the root of your project, (where the `package.json` resides), run one of th
 
 ```bash
 # via npm
-npm install @modopayments-ux/modo2auth-js
+npm install @modopayments/modo2auth-js
 
 # via yarn
-yarn add @modopayments-ux/modo2auth-js
+yarn add @modopayments/modo2auth-js
 ```
 
 # Example Usage
@@ -33,7 +33,7 @@ Here's an example using `node-fetch` to make requests. You can use your preferre
 
 ```js
 // 1. IMPORT
-const Modo2Auth = require('@modopayments-ux/modo2auth-js')
+const Modo2Auth = require('@modopayments/modo2auth-js')
 const fetch = require('node-fetch') // for example purposes
 
 // 2. INSTANTIATE
@@ -66,7 +66,7 @@ fetch(api_host + api_uri, {
 
 ```js
 // 1. IMPORT
-const Modo2Auth = require('@modopayments-ux/modo2auth-js')
+const Modo2Auth = require('@modopayments/modo2auth-js')
 const fetch = require('node-fetch') // for example purposes
 
 // 2. INSTANTIATE
@@ -141,6 +141,7 @@ Prerequisite: `yarn` installed globally
 3. Unit test - `yarn run test`
 
 # Contributing
+
 1. Fork this repo via Github
 2. Create your feature branch (`git checkout -b feature/my-new-feature`)
 3. Ensure unit tests are passing (`yarn run test`)
@@ -149,6 +150,7 @@ Prerequisite: `yarn` installed globally
 6. Create new Pull Request via Github
 
 # Publishing
+
 Prequisite: Need to have `node` installed on your system. At the root of this directory, do the following:
 
 1. Increase version in `package.json` according to Semantec Versioning guidelines
