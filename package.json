@@ -1,6 +1,6 @@
 {
-  "name": "@modopayments-ux/modo2auth-js",
-  "version": "1.0.0",
+  "name": "@modopayments/modo2auth-js",
+  "version": "1.1.0",
   "description": "A node module to generate authentication details to communicate with Modo servers",
   "main": "src/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/modopayments-ux/modo2auth-js",
+    "url": "https://github.com/modopayments/modo2auth-js",
     "directory": "packages/modo2auth-js"
   },
   "publishConfig": {
