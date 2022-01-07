@@ -11,7 +11,7 @@
 - `api_identifier` - API key from Modo
 - `api_secret` - API secret from Modo
 
-These values will be used when intantiating the library.
+These values will be used when instantiating the library.
 
 # Install
 
@@ -29,39 +29,6 @@ yarn add @modopayments/modo2auth-js
 
 Here's an example using `node-fetch` to make requests. You can use your preferred method or library.
 
-## `GET` Example
-
-```js
-// 1. IMPORT
-const Modo2Auth = require('@modopayments/modo2auth-js')
-const fetch = require('node-fetch') // for example purposes
-
-// 2. INSTANTIATE
-const creds = {
-  api_identifier: '...', // get these from MODO
-  api_secret: '...', // get these from MODO
-}
-const modo2Auth = new Modo2Auth(creds)
-
-// 3. SEND REQUEST
-const api_host = 'http://localhost:82' // TODO: will need to use a public endpoint
-const api_uri = '/v2/vault/public_key' // endpoint you want to hit
-fetch(api_host + api_uri, {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: modo2Auth.getToken(api_uri),
-  },
-})
-  .then(resp => {
-    // https://github.com/node-fetch/node-fetch methods
-    return resp.text()
-  })
-  .then(text => {
-    console.log('text', text)
-  })
-```
-
 ## `POST` Example
 
 ```js
@@ -78,7 +45,7 @@ const modo2Auth = new Modo2Auth(creds)
 
 // 3. SEND REQUEST
 const api_host = 'http://localhost:82' // TODO: will need to use a public endpoint
-const api_uri = '/v2/reports' // endpoint you want to hit
+const api_uri = '/v3/checkout/list' // endpoint you want to hit
 // `body` is included due to this being a POST request
 const body = {
   start_date: '2020-05-01T00:00:00Z',
@@ -116,7 +83,7 @@ Returns an instance of the `Modo2Auth` class.
 
 Returns a Modo2Auth token (string) to be added to an HTTP request as an Authorization header (`{Authorization: value}`).
 
-`api_uri` (string) - Api Uri intending to call to (ex: `"/v2/vault/public_key"`)
+`api_uri` (string) - Api Uri intending to call to (ex: `"/v3/checkout/list"`)
 
 `body` (string, object, null) - Body of the request
 
@@ -128,7 +95,7 @@ Returns a Modo2Auth token (string) to be added to an HTTP request as an Authoriz
 
 Returns an HTTP request (object) with a Modo2Auth token added as an Authorization header.
 
-`api_uri` (string) - Api Uri intending to call to (ex: `"/v2/vault/public_key"`)
+`api_uri` (string) - Api Uri intending to call to (ex: `"/v3/checkout/list"`)
 
 `request` (object) - HTTP request being made, inluding body
 
